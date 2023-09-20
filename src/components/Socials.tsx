@@ -2,7 +2,7 @@ import React, {FunctionComponent} from "react";
 import {SocialIcon} from "react-social-icons";
 import "../css/SocialsComponent.css"
 
-export const SocialsComponent: FunctionComponent = () => {
+export const Socials: FunctionComponent = () => {
     return (
         <>
             <div>
