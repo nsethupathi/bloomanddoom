@@ -1,15 +1,20 @@
-import React, {FunctionComponent, useEffect} from "react";
+import React, {FunctionComponent, useEffect, useState} from "react";
 import {Socials} from "./Socials";
 import {getUpcomingShows} from "../services/UpcomingShowsService";
+import {UpcomingShow} from "./UpcomingShow";
+import {Show} from "../models/Show";
 
 export const LandingPage: FunctionComponent = () => {
 
+    const [fetchedShows, setFetchedShows] = useState<Show[]>([])
+
     useEffect(() => {
-        // debugger
         const fetchShows = async() => {
             return await getUpcomingShows();
         }
-        const fetchedShows = fetchShows().catch(console.error)
+        fetchShows().then((shows) => {
+            setFetchedShows(shows)
+        })
     }, []);
 
     return (
@@ -22,6 +27,9 @@ export const LandingPage: FunctionComponent = () => {
             <div>Bloom and Doom</div>
             <Socials/>
             <div>Upcoming Shows</div>
+            {fetchedShows.map((show: Show) => {
+                return <UpcomingShow upcomingShow={show}/>
+            })}
         </>
     )
 }

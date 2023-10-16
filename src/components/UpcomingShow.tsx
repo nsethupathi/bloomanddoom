@@ -8,10 +8,11 @@ export interface UpcomingShowProps {
 export const UpcomingShow: FunctionComponent<UpcomingShowProps> = (props) => {
     return (
         <>
-            <div>props.upcomingShow.venue</div>
-            <div>props.upcomingShow.address</div>
-            <div>props.upcomingShow.date</div>
-            <div>props.upcomingShow.time</div>
+            <div>{props.upcomingShow.venue}</div>
+            <div>{props.upcomingShow.address}</div>
+            <div>{props.upcomingShow.date}</div>
+            <div>{props.upcomingShow.time}</div>
+            <br></br>
         </>
     )
 }
